@@ -1,2 +1,3 @@
 MyTargets:
-1.create a hero and let him walk to somewhere
+1.create a hero and let him walk to somewhere                                   finished
+2.ensure a basic model
