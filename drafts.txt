@@ -1,0 +1,2 @@
+MyTargets:
+1.create a hero and let him walk to somewhere
