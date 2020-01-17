@@ -1,0 +1,27 @@
+move  evade  disturb  skill_points_allocation
+attack  retreat  item_purchase  assemble  rune  ward  protect
+lane  roam  push  defend  roshan  support  farm
+
+
+move: urgent not_urgent;item skill 
+evade: item skill terrain
+disturb: goal:attack_disturb,retreat_disturb method:item,skill
+===========================================
+attack: target:hero,neutral,creeps method:normal_hit,skill,item                             call---move,evade,disturb
+retreat:                                                                                    call---move,evade,disturb
+item_purchase: method:home,secret_shop  situation_analysis                                  call---move
+assemble: assemble_time_limit,assemble_target                                               call---move,evade
+rune: urgent,not_urgent  rune_allocation                                                    call---move,disturb
+ward: aggressive,protective  clean_wards                                                    call---move,disturb
+protect: offensive_protection,protective_protection  method:normal_hit,skill,item           call---move,evade,disturb
+===========================================
+lane: creeps_blocking,last_hit                                                              call---attack,retreat,item_purchase,rune,ward,protect
+roam: offensive_roam,protective_roam                                                        call---attack,assemble,ward
+push: feint,single,together                                                                 call---attack,retreat,assemble,ward
+defend:                                                                                     call---attack,retreat,assemble,ward,protect
+roshan:                                                                                     call---attack,assemble,ward
+support:                                                                                    call---attack,rune,ward,protect
+farm:                                                                                       call---attack,item_purchase
+
+
+
